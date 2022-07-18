@@ -11,9 +11,17 @@ rails '7.0.3' mentioned in gemfile
 
 
 * Database creation
-#run command for database 
+
+
+
+
+run command for database 
+
+
 rails db:migrate
 
 
 #command for run 
+
+
 rails s
