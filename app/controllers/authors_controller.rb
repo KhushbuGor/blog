@@ -14,10 +14,15 @@ class AuthorsController < ApplicationController
     def create 
         @author = Author.new(author_params)
 
+        respond_to do |format|
         if @author.save
-            redirect_to @author
+            format.html {redirect_to @author,notice: "Author Created successfully"}
+            format.json {render :show,status: :created, location: @author}
+            
         else
-            render :new, status: :unprocessable_entity
+            format.html{ render :new, status: :unprocessable_entity }
+            format.json {render json: @author.errors, status: :unprocessable_entity}
+        end
         end
     end
 
@@ -25,20 +30,29 @@ class AuthorsController < ApplicationController
         @author = Author.find(params[:id])
     end
     def update
+        respond_to do |format|
         @author = Author.find(params[:id])
 
         
         if @author.update(author_params)
-            redirect_to @author
+            format.html { redirect_to @author, notice: "Author was successfully updated." }
+            format.json { render :show, status: :ok, location: @author }
+            
         else
-            render :edit, status: :unprocessable_entity
+            format.html { render :edit, status: :unprocessable_entity }
+            format.json { render json: @author.errors, status: :unprocessable_entity }
+            
+        end
         end
     end
     def destroy
         @author = Author.find(params[:id])
         @author.destroy 
-        redirect_to authors_path, status: :see_other
-    end
+        respond_to do |format|
+            format.html { redirect_to authors_path ,status: :see_othe}
+            format.json { head :no_content }
+          end
+        end
 
     private
     def author_params

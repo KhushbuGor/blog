@@ -12,13 +12,16 @@ class PostsController < ApplicationController
   end 
 
   def create 
-      @post = Post.new(post_params)
-
+    @post = Post.new(post_params)
+    
+    respond_to do |format|
       if @post.save
-          redirect_to author_post_path(params[:author_id],@post)
+        format.html {  redirect_to author_post_path(@post.author, @post), notice: "Post was successfully created." }
+                 
       else
-          render :new, status: :unprocessable_entity
+        format.html { render :new, status: :unprocessable_entity }
       end
+    end
   end
 
   def edit
@@ -26,13 +29,14 @@ class PostsController < ApplicationController
   end
   def update
       @post = Post.find(params[:id])
-
-      
+    respond_to do |format|      
       if @post.update(post_params)
-          redirect_to author_post_path(@post.author)
+        format.html {         redirect_to author_post_path(@post.author), notice: "Post was successfully updated." }
+
       else
-          render :edit, status: :unprocessable_entity
+        format.html { render :edit, status: :unprocessable_entity }
       end
+    end
   end
   def destroy
       @post = Post.find(params[:id])
