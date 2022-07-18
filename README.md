@@ -5,15 +5,23 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* version
 used ruby version '3.0.0'
 rails '7.0.3' mentioned in gemfile
 
 
 * Database creation
-#run command for database 
+
+
+
+
+run command for database 
+
+
 rails db:migrate
 
 
 #command for run 
+
+
 rails s
