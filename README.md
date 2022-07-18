@@ -6,19 +6,14 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+used ruby version '3.0.0'
+rails '7.0.3' mentioned in gemfile
 
-* System dependencies
-
-* Configuration
 
 * Database creation
+#run command for database 
+rails db:migrate
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#command for run 
+rails s
