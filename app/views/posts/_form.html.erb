@@ -1,0 +1,21 @@
+<%= form_with model: [:author, post] do |form| %>
+
+  
+  <div>
+  <%= form.label :title %><br>
+  <%= form.text_field :title %>
+  
+  
+  </div>
+  
+  <div>
+  <%= form.label :text %><br>
+  <%= form.text_area :text %>
+  
+  </div>
+  
+  <%= form.select(:author_id, Author.all.collect { |author| [ author.name, author.id ] }, { prompt: 'Select Author' }) %>
+  <div>
+      <%= form.submit %>
+    </div>
+  <% end %>

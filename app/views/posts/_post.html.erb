@@ -1,0 +1,10 @@
+<td>
+<tr>
+<p>Post Title : <%= post.title %></p></tr>
+<tr><p>Description : <%= post.text %></p></tr>
+<tr>
+<a href ="<%= author_post_path(post.author, post.id) %>">
+  Show
+</a></tr>
+
+</td>

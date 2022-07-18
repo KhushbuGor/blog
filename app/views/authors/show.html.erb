@@ -1,0 +1,32 @@
+<p>Author Name : <%= @author.name %></p>
+
+<p>Description : <%= @author.description %></p>
+<div>
+<td>
+  <tr>
+    <%= link_to "Create post",new_author_post_path(@author), method: :get%>
+  </tr>
+  <% @author.posts.each do |post| %>
+  <%= render 'posts/post', post: post  %>
+
+  <tr>
+    <%= link_to "Edit", edit_author_path(@author) %>
+  </tr>
+  <tr>
+    <%= link_to "Destroy", author_path(@author), data: {
+      turbo_method: :delete,
+      turbo_confirm: "Are you sure?"
+      } %>
+      
+    <% end %>
+  </tr>
+</td>
+</div>
+<div>
+  <td>
+    <tr><%= link_to "Back to Home", authors_path, method: :get %>
+    </tr>
+    </td>
+</div>
+
+  

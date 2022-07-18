@@ -1,0 +1,15 @@
+<h3>Post Title : <%= @post.title %></h3>
+
+<p>Description : <%= @post.text %></p>
+
+<td>
+  <tr><%= link_to "Edit", edit_author_post_path(@post) %></tr>
+  <tr><%= link_to "Destroy", author_post_path(@post), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+                  
+                  </tr>
+                  <tr><%= link_to "View", author_posts_path, method: :get %></tr>
+</td>
+

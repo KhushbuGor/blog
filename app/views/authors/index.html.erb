@@ -1,0 +1,17 @@
+<h1>Authors</h1>
+
+<ul>
+  <% @authors.each do |author| %>
+    <li>
+      <a href="<%= author_path(author.id) %>">
+        <%= author.name %><br>
+      </a>
+      <div>
+        Post Count: <%= author.posts.count %>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+<%= button_to "Create New", new_author_path, method: :get %>
+

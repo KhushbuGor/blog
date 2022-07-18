@@ -1,0 +1,10 @@
+<h1>posts</h1>
+
+<ul>
+  <% @posts.each do |post| %>
+    <%= render 'post', post: post  %>
+  <% end %>
+</ul>
+
+<%= button_to "Create New", new_author_post_path, method: :get %>
+
